@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "businesses",
+  "info": {
+    "singularName": "business",
+    "pluralName": "businesses",
+    "displayName": "business"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "business": {
+      "type": "string",
+      "required": true
+    },
+    "refid": {
+      "type": "string",
+      "required": true
+    },
+    "cycles": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::cycle.cycle",
+      "inversedBy": "businesses"
+    }
+  }
+}

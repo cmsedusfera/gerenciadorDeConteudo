@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "cycles",
+  "info": {
+    "singularName": "cycle",
+    "pluralName": "cycles",
+    "displayName": "cycle",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "cycle": {
+      "type": "string",
+      "required": true
+    },
+    "businesses": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::business.business",
+      "mappedBy": "cycles"
+    },
+    "refid": {
+      "type": "string",
+      "required": true
+    }
+  }
+}
