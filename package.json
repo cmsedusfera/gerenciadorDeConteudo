@@ -8,7 +8,7 @@
     "start": "strapi start",
     "build": "strapi build",
     "strapi": "strapi",
-    "vercel-build": "npx prisma migration deploy"
+    "vercel-build": "npx prisma migrate deploy"
   },
   "devDependencies": {
     "webpack": "^5.90.3"
@@ -33,7 +33,7 @@
     "uuid": "5745171d-1c0d-4582-8e6c-c4405eb56292"
   },
   "engines": {
-    "node": ">=18.0.0 <=20.x.x",
+    "node": ">=18.0.0",
     "npm": ">=6.0.0"
   },
   "license": "MIT"
