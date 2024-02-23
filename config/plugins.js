@@ -4,9 +4,9 @@ module.exports = ({ env }) => ({
       config: {
         deployHook:
           "https://api.vercel.com/v1/integrations/deploy/prj_<deploy-hook>",
-        apiToken: "<vercel-api-token>",
-        appFilter: "your-app-name-on-vercel",
-        teamFilter: "your-team-id-on-vercel",
+        apiToken: "weGHNOGnkFoXHLuniPQIhHZi",
+        appFilter: "jeffersons-projects-52b3a927",
+        teamFilter: "team_N2pI6pbMKUfk0l11Zfy0kA6T",
         roles: ["strapi-super-admin"],
       },
     },

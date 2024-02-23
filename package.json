@@ -7,18 +7,21 @@
     "develop": "strapi develop",
     "start": "strapi start",
     "build": "strapi build",
-    "strapi": "strapi"
+    "strapi": "strapi",
+    "vercel-build": "npx prisma migrate deploy"
   },
   "devDependencies": {
     "webpack": "^5.90.3"
   },
   "dependencies": {
     "@_sh/strapi-plugin-ckeditor": "^2.1.0",
+    "@prisma/client": "^5.10.2",
     "@strapi/plugin-cloud": "4.20.2",
     "@strapi/plugin-i18n": "4.20.2",
     "@strapi/plugin-users-permissions": "4.20.2",
     "@strapi/strapi": "4.20.2",
     "pg": "8.8.0",
+    "prisma": "^5.10.2",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-router-dom": "5.3.4",
