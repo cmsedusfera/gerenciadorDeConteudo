@@ -7,8 +7,7 @@
     "develop": "strapi develop",
     "start": "strapi start",
     "build": "strapi build",
-    "strapi": "strapi",
-    "vercel-build": "npx prisma migrate deploy"
+    "strapi": "strapi"
   },
   "devDependencies": {
     "webpack": "^5.90.3"
