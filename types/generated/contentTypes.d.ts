@@ -362,79 +362,6 @@ export interface AdminTransferTokenPermission extends Schema.CollectionType {
   };
 }
 
-export interface ApiBusinessBusiness extends Schema.CollectionType {
-  collectionName: 'businesses';
-  info: {
-    singularName: 'business';
-    pluralName: 'businesses';
-    displayName: 'business';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    business: Attribute.String & Attribute.Required;
-    refid: Attribute.String & Attribute.Required;
-    cycles: Attribute.Relation<
-      'api::business.business',
-      'manyToMany',
-      'api::cycle.cycle'
-    >;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::business.business',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::business.business',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiCycleCycle extends Schema.CollectionType {
-  collectionName: 'cycles';
-  info: {
-    singularName: 'cycle';
-    pluralName: 'cycles';
-    displayName: 'cycle';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    cycle: Attribute.String & Attribute.Required;
-    businesses: Attribute.Relation<
-      'api::cycle.cycle',
-      'manyToMany',
-      'api::business.business'
-    >;
-    refid: Attribute.String & Attribute.Required;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::cycle.cycle',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::cycle.cycle',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface PluginUploadFile extends Schema.CollectionType {
   collectionName: 'files';
   info: {
@@ -856,6 +783,117 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
+export interface ApiBusinessBusiness extends Schema.CollectionType {
+  collectionName: 'businesses';
+  info: {
+    singularName: 'business';
+    pluralName: 'businesses';
+    displayName: 'business';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    business: Attribute.String & Attribute.Required;
+    refid: Attribute.String & Attribute.Required;
+    cycles: Attribute.Relation<
+      'api::business.business',
+      'manyToMany',
+      'api::cycle.cycle'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::business.business',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::business.business',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiCycleCycle extends Schema.CollectionType {
+  collectionName: 'cycles';
+  info: {
+    singularName: 'cycle';
+    pluralName: 'cycles';
+    displayName: 'cycle';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    cycle: Attribute.String & Attribute.Required;
+    businesses: Attribute.Relation<
+      'api::cycle.cycle',
+      'manyToMany',
+      'api::business.business'
+    >;
+    refid: Attribute.String & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::cycle.cycle',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::cycle.cycle',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiTesteTeste extends Schema.CollectionType {
+  collectionName: 'testes';
+  info: {
+    singularName: 'teste';
+    pluralName: 'testes';
+    displayName: 'teste';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    contents: Attribute.RichText &
+      Attribute.Required &
+      Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'toolbar';
+        }
+      >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::teste.teste',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::teste.teste',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -866,8 +904,6 @@ declare module '@strapi/types' {
       'admin::api-token-permission': AdminApiTokenPermission;
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
-      'api::business.business': ApiBusinessBusiness;
-      'api::cycle.cycle': ApiCycleCycle;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::content-releases.release': PluginContentReleasesRelease;
@@ -876,6 +912,9 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::business.business': ApiBusinessBusiness;
+      'api::cycle.cycle': ApiCycleCycle;
+      'api::teste.teste': ApiTesteTeste;
     }
   }
 }
