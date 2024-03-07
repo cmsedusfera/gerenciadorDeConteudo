@@ -4,7 +4,8 @@
   "info": {
     "singularName": "teste",
     "pluralName": "testes",
-    "displayName": "teste"
+    "displayName": "teste",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -22,6 +23,12 @@
         "preset": "toolbar"
       },
       "customField": "plugin::ckeditor5.CKEditor"
+    },
+    "cycles": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::cycle.cycle",
+      "mappedBy": "teste"
     }
   }
 }

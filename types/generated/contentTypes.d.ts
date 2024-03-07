@@ -838,6 +838,11 @@ export interface ApiCycleCycle extends Schema.CollectionType {
       'api::business.business'
     >;
     refid: Attribute.String & Attribute.Required;
+    teste: Attribute.Relation<
+      'api::cycle.cycle',
+      'manyToOne',
+      'api::teste.teste'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -862,6 +867,7 @@ export interface ApiTesteTeste extends Schema.CollectionType {
     singularName: 'teste';
     pluralName: 'testes';
     displayName: 'teste';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -876,6 +882,11 @@ export interface ApiTesteTeste extends Schema.CollectionType {
           preset: 'toolbar';
         }
       >;
+    cycles: Attribute.Relation<
+      'api::teste.teste',
+      'oneToMany',
+      'api::cycle.cycle'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

@@ -25,6 +25,12 @@
     "refid": {
       "type": "string",
       "required": true
+    },
+    "teste": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::teste.teste",
+      "inversedBy": "cycles"
     }
   }
 }
